@@ -1,51 +1,51 @@
-<!---
-{
-  "depends_on": [],
-  "author": "Stephan Bökelmann",
-  "first_used": "2025-03-17",
-  "keywords": ["learning", "exercises", "education", "practice"]
-}
---->
-
-# Learning Through Exercises
+# Identifiers, Types and Variables
 
 ## 1) Introduction
-Learning by doing is one of the most effective methods to acquire new knowledge and skills. Rather than passively consuming information, actively engaging in problem-solving fosters deeper understanding and long-term retention. By working through structured exercises, students can grasp complex concepts in a more intuitive and applicable way. This approach is particularly beneficial in technical fields like programming, mathematics, and engineering.
+Programming means naming things and assigning meaning to data. In C, this begins with variables, their types, and the rules for naming them.
 
-### 1.1) Further Readings and Other Sources
-- [The Importance of Practice in Learning](https://www.sciencedirect.com/science/article/pii/S036013151300062X)
-- "The Art of Learning" by Josh Waitzkin
-- [How to Learn Effectively: 5 Key Strategies](https://www.edutopia.org/article/5-research-backed-learning-strategies)
+Once you've written your first `printf("Hello, World!\n")`, you've already encountered your first function and literal string. The next logical step is understanding **how we name data** and **what kinds of data** we can represent.
+
+Identifiers are the names we give to things in code: variables, functions, constants. But not all names are allowed — they must follow specific rules: they must begin with a letter or underscore, may not clash with reserved keywords, and are case-sensitive.
+
+Types in C describe what kind of data is stored and how many bytes are allocated. Some types are exact (`int`, `char`, `float`) while others vary depending on the system (`long`, `short`). Understanding types is critical not just for memory layout, but for how operations like `+`, `*`, or `==` behave.
+
+A variable is a named storage location — a binding between an identifier and a value of a certain type. Declaring variables and using them correctly is a foundational concept.
+
+> Variables in C are uninitialized by default — using them before assigning a value leads to **undefined behavior**.
+
+An identifier is a name, which referrs to an object. Each identifier comes with a type,which is kind of a set of rules about the object that identifier references, defining how that data is stored, interpreted, which operations are legal and should be implemented by specific `asm` instructions by the compiler. 
+
+You may use the same `+` operator in you code for `int` and `float`. But trying to write down the bit-patterns of two separate `int` and `float` values and the attempt to write down the truth-table will show to you, that even though in high-level-code we mean the same operation - adding them together - the circuits for them need to be implemented completely different. Thus making it neccessary to use different instructions for adding `float` and `int`.
+
 
 ## 2) Tasks
-1. **Write a Summary**: Summarize the concept of "learning by doing" in 3-5 sentences.
-2. **Example Identification**: List three examples from your own experience where learning through exercises helped you understand a topic better.
-3. **Create an Exercise**: Design a simple exercise for a topic of your choice that someone else could use to practice.
-4. **Follow an Exercise**: Find an online tutorial that includes exercises and complete at least two of them.
-5. **Modify an Existing Exercise**: Take a basic problem from a textbook or online course and modify it to make it slightly more challenging.
-6. **Pair Learning**: Explain a concept to a partner and guide them through an exercise without giving direct answers.
-7. **Review Mistakes**: Look at an exercise you've previously completed incorrectly. Identify why the mistake happened and how to prevent it in the future.
-8. **Time Challenge**: Set a timer for 10 minutes and try to solve as many simple exercises as possible on a given topic.
-9. **Self-Assessment**: Create a checklist to evaluate your own performance in completing exercises effectively.
-10. **Reflect on Progress**: Write a short paragraph on how this structured approach to exercises has influenced your learning.
-
-<details>
-  <summary>Tip for Task 5</summary>
-  Try making small adjustments first, such as increasing the difficulty slightly or adding an extra constraint.
-</details>
+1. **Declare Variables**: Create variables of type `int`, `char`, `float`, and `double`. Assign values to them.
+2. **Print Variables**: Use `printf` with the appropriate format specifiers (`%d`, `%c`, `%f`, `%lf`) to print their values. Just run the code for now and checkout the exercise [Format Specifiers](https://github.com/STEMgraph/fa0f19fa-c579-4183-9496-0eaa4251dfd4).
+```C
+printf("int: %d", intvar);
+printf("char: %c", charvar);
+printf("float: %f", floatvar);
+printf("double: %lf", doublevar);
+```
+3. **Naming Practice**: Try creating a variable with an illegal name (e.g., `int 2cool;`) and observe the diagnostic message during compilation.
+4. **Arithmetic**: Declare two `int` variables and compute their sum, product, and remainder. Print the results.
+5. **Type Casting**: Divide an `int` by another `int` and cast the result to `float`. 
+```C
+float res1 = (float)(a / b);
+float res2 = (float) a / b ;
+printf("Result 1: %f", res1);
+printf("Result 2: %f", res2);
+```
+6. **Storage Size**: Inspect the sizes of `int`, `char`, `float`, and `double` on your system by using  `sizeof()`?
+```C
+printf("Size of int: %d", sizeof(a));
+```
 
 ## 3) Questions
-1. What are the main benefits of learning through exercises compared to passive learning?
-2. How do exercises improve long-term retention?
-3. Can you think of a subject where learning through exercises might be less effective? Why?
-4. What role does feedback play in learning through exercises?
-5. How can self-designed exercises improve understanding?
-6. Why is it beneficial to review past mistakes in exercises?
-7. How does explaining a concept to someone else reinforce your own understanding?
-8. What strategies can you use to stay motivated when practicing with exercises?
-9. How can timed challenges contribute to learning efficiency?
-10. How do exercises help bridge the gap between theory and practical application?
+1. What are valid and invalid identifier names in C, and in which stage of the compilation, are these names checked?
+2. What happens if you use a variable before assigning it a value?
+3. Why does dividing two integers give an integer result?
 
 ## 4) Advice
-Practice consistently and seek out diverse exercises that challenge different aspects of a topic. Combine exercises with reflection and feedback to maximize your learning efficiency. Don't hesitate to adapt exercises to fit your own needs and ensure that you're actively engaging with the material, rather than just going through the motions.
+Use `man printf` to explore format specifiers. Try writing small programs that experiment with assigning values and printing results. Don’t just read — test! Seeing how types behave in practice is much more instructive than memorizing rules.
 
