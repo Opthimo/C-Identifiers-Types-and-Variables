@@ -1,3 +1,12 @@
+<!---
+{
+  "id": "61354751-6887-4761-9ef0-ca25d237cf1c",
+  "depends_on": [],
+  "author": "Stephan Bökelmann",
+  "first_used": "2025-05-19",
+  "keywords": ["types","identifier","type-system"]
+}
+--->
 # Identifiers, Types and Variables
 
 ## 1) Introduction
