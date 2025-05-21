@@ -52,8 +52,19 @@ printf("Size of int: %d", sizeof(a));
 
 ## 3) Questions
 1. What are valid and invalid identifier names in C, and in which stage of the compilation, are these names checked?
+
+a-z, A-z "_" 0-9 <- after the first character:
+not allowed: c names like int, count
+
 2. What happens if you use a variable before assigning it a value?
+
+ERROR Message
+Won't compile
+
 3. Why does dividing two integers give an integer result?
+
+Operations between two values of the same type stay in that type, unless you explicitly cast.
+
 
 ## 4) Advice
 Use `man printf` to explore format specifiers. Try writing small programs that experiment with assigning values and printing results. Don’t just read — test! Seeing how types behave in practice is much more instructive than memorizing rules.
